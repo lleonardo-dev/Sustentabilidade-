@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mente Viva — Saúde Mental, Qualidade de Vida e Bem-Estar</title>
+<meta name="description" content="Site educativo sobre saúde mental, qualidade de vida, prevenção e promoção da saúde. Projeto acadêmico de Front-End.">
+<link rel="icon" href="img/icone-marca.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+<div class="barra-acessibilidade" role="region" aria-label="Controles de acessibilidade">
+  <div class="container">
+    <span class="rotulo">Acessibilidade:</span>
+    <button type="button" data-a11y="aumentar-fonte" aria-label="Aumentar o tamanho da fonte">A+</button>
+    <button type="button" data-a11y="diminuir-fonte" aria-label="Diminuir o tamanho da fonte">A−</button>
+    <button type="button" data-a11y="alto-contraste" aria-pressed="false" aria-label="Ativar ou desativar alto contraste">Alto contraste</button>
+    <button type="button" data-a11y="restaurar" aria-label="Restaurar configuração padrão de acessibilidade">Restaurar padrão</button>
+  </div>
+</div>
+
+<header class="cabecalho">
+  <div class="container">
+    <a href="index.html" class="marca">
+      <img src="img/icone-marca.svg" alt="" class="marca-icone">
+      Mente Viva
+    </a>
+    <button type="button" class="botao-menu-mobile" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menu de navegação">
+      <span></span>
+    </button>
+    <nav class="nav-principal" id="nav-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html" aria-current="page">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="prevencao.html">Prevenção</a></li>
+        <li><a href="qualidade-vida.html">Qualidade de Vida</a></li>
+        <li><a href="impacto.html">Impacto Social</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <h1>Saúde Mental, Qualidade de Vida e Bem-Estar</h1>
+      <p class="hero-subtitulo">Informação, prevenção e promoção para uma vida mais saudável.</p>
+      <p>O <strong>Mente Viva</strong> é um projeto acadêmico educativo que reúne informações sobre saúde mental, qualidade de vida, prevenção e promoção da saúde, pensado para ser acessível a qualquer pessoa, em qualquer dispositivo.</p>
+      <div class="hero-acoes">
+        <a class="botao botao-primario" href="sobre.html">Conhecer o projeto</a>
+        <a class="botao botao-secundario" href="prevencao.html">Ver formas de prevenção</a>
+      </div>
+    </div>
+    <img class="hero-ilustracao" src="img/hero-ilustracao.svg" alt="Ilustração de uma pessoa tranquila sentada, cercada por folhas e uma nuvem suave, representando equilíbrio mental">
+  </div>
+</section>
+
+<section>
+  <div class="container grade-duas-colunas">
+    <div class="revelar">
+      <h2>Por que falar sobre saúde mental?</h2>
+      <p>A saúde mental faz parte da saúde como um todo. Ela influencia como pensamos, sentimos, nos relacionamos e lidamos com os desafios do dia a dia. Cuidar da mente é tão importante quanto cuidar do corpo, e conversar abertamente sobre o tema ajuda a reduzir preconceitos e a aproximar as pessoas da informação e do apoio de que precisam.</p>
+    </div>
+    <div class="revelar">
+      <h2>Saúde mental e qualidade de vida</h2>
+      <p>Qualidade de vida vai além da ausência de doenças: envolve sono, alimentação, relações sociais, lazer, trabalho e equilíbrio emocional. Quando a saúde mental é cuidada, fica mais fácil manter esse equilíbrio e enfrentar as fases mais difíceis com mais recursos internos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faixa-verde">
+  <div class="container">
+    <h2>A importância da prevenção</h2>
+    <p class="max-linha-larga">Prevenir é criar, no cotidiano, pequenas condições para que o sofrimento emocional não se acumule silenciosamente: dormir bem, manter vínculos, pedir ajuda quando necessário e observar os próprios sinais de cansaço e tristeza persistente. Prevenção não é diagnóstico — é cuidado contínuo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Áreas principais do site</h2>
+    <div class="grade-cards">
+      <article class="cartao acento-verde revelar">
+        <svg class="cartao-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="20" fill="#e7f2ea"/><path d="M24 34c-8-6-9-14-3-16 2-1 3 1 3 1s1-2 3-1c6 2 5 10-3 16z" fill="#3f8f6f"/></svg>
+        <h3>Saúde Mental</h3>
+        <p>Entenda por que cuidar da mente é parte essencial da saúde geral.</p>
+      </article>
+      <article class="cartao acento-azul revelar">
+        <svg class="cartao-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="20" fill="#e3f0f6"/><path d="M24 12v24M14 22l10-10 10 10" fill="none" stroke="#1f5f6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Prevenção</h3>
+        <p>Hábitos e atitudes do dia a dia que ajudam a proteger o bem-estar emocional.</p>
+        <a href="prevencao.html">Ver mais →</a>
+      </article>
+      <article class="cartao acento-dourado revelar">
+        <svg class="cartao-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="20" fill="#f6ecd9"/><circle cx="24" cy="24" r="10" fill="#c99a3e"/></svg>
+        <h3>Qualidade de Vida</h3>
+        <p>Descubra como diferentes áreas da vida se conectam ao bem-estar.</p>
+        <a href="qualidade-vida.html">Ver mais →</a>
+      </article>
+      <article class="cartao acento-verde revelar">
+        <svg class="cartao-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="20" fill="#e7f2ea"/><path d="M24 14a6 6 0 110 12 6 6 0 010-12zM12 36c1-6 6-9 12-9s11 3 12 9" fill="none" stroke="#3f8f6f" stroke-width="3" stroke-linecap="round"/></svg>
+        <h3>Promoção da Saúde</h3>
+        <p>Ações coletivas e individuais que fortalecem comunidades mais saudáveis.</p>
+        <a href="impacto.html">Ver mais →</a>
+      </article>
+      <article class="cartao acento-azul revelar">
+        <svg class="cartao-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="20" fill="#e3f0f6"/><path d="M14 24h20M24 14v20" stroke="#1f5f6b" stroke-width="3" stroke-linecap="round"/></svg>
+        <h3>Inclusão e Acessibilidade</h3>
+        <p>Um site pensado para ser usado por todas as pessoas, com ou sem deficiência.</p>
+        <a href="acessibilidade.html">Ver mais →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="faixa-azul">
+  <div class="container centro">
+    <h2>Um site para todo mundo</h2>
+    <p class="max-linha-larga" style="margin-left:auto;margin-right:auto;">Este site foi construído com foco em acessibilidade: navegação por teclado, contraste adequado, textos alternativos em imagens e controles para ajustar fonte e contraste. Conheça os recursos disponíveis.</p>
+    <a class="botao botao-primario espaco-topo" href="acessibilidade.html">Conhecer os recursos de acessibilidade</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="aviso">
+      <strong>Este site não substitui profissionais de saúde</strong>
+      O conteúdo aqui apresentado é educativo e informativo. Ele não diagnostica condições de saúde mental nem substitui avaliação, acompanhamento ou tratamento de médicos, psicólogos e demais profissionais qualificados. Em caso de sofrimento emocional, procure ajuda profissional ou os serviços de saúde da sua região.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div>
+      <h2>Mente Viva</h2>
+      <p>Projeto acadêmico de Front-End da UNICID sobre saúde mental, qualidade de vida, prevenção e promoção da saúde. Conteúdo educativo e informativo — não substitui avaliação, diagnóstico ou tratamento por profissionais de saúde.</p>
+    </div>
+    <div>
+      <h2>Navegação</h2>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre o projeto</a></li>
+        <li><a href="prevencao.html">Prevenção</a></li>
+        <li><a href="qualidade-vida.html">Qualidade de Vida</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Precisa de apoio agora?</h2>
+      <p>Em caso de sofrimento emocional ou emergência, ligue para o <strong>CVV – Centro de Valorização da Vida</strong>, telefone <strong>188</strong>, gratuito e disponível 24 horas (cvv.org.br), ou procure o serviço de saúde mais próximo.</p>
+    </div>
+    <div>
+      <h2>Contato do projeto</h2>
+      <ul>
+        <li>E-mail: contato@mentevivaprojeto.com.br</li>
+        <li>Telefone fictício: (11) 4000-1234</li>
+        <li>São Paulo — SP</li>
+      </ul>
+    </div>
+  </div>
+  <p class="creditos">Projeto acadêmico desenvolvido para a disciplina de Front-End — UNICID · © <span id="ano-atual"></span> Mente Viva. Conteúdo educativo, sem fins comerciais.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
