@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mídia — Mente Viva</title>
+<meta name="description" content="Recursos multimídia sobre saúde mental: vídeo de respiração guiada, áudio de atenção plena e conteúdo institucional.">
+<link rel="icon" href="img/icone-marca.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+<div class="barra-acessibilidade" role="region" aria-label="Controles de acessibilidade">
+  <div class="container">
+    <span class="rotulo">Acessibilidade:</span>
+    <button type="button" data-a11y="aumentar-fonte" aria-label="Aumentar o tamanho da fonte">A+</button>
+    <button type="button" data-a11y="diminuir-fonte" aria-label="Diminuir o tamanho da fonte">A−</button>
+    <button type="button" data-a11y="alto-contraste" aria-pressed="false" aria-label="Ativar ou desativar alto contraste">Alto contraste</button>
+    <button type="button" data-a11y="restaurar" aria-label="Restaurar configuração padrão de acessibilidade">Restaurar padrão</button>
+  </div>
+</div>
+
+<header class="cabecalho">
+  <div class="container">
+    <a href="index.html" class="marca">
+      <img src="img/icone-marca.svg" alt="" class="marca-icone">
+      Mente Viva
+    </a>
+    <button type="button" class="botao-menu-mobile" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menu de navegação">
+      <span></span>
+    </button>
+    <nav class="nav-principal" id="nav-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="prevencao.html">Prevenção</a></li>
+        <li><a href="qualidade-vida.html">Qualidade de Vida</a></li>
+        <li><a href="impacto.html">Impacto Social</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html" aria-current="page">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+<section class="pagina-cabecalho">
+  <div class="container">
+    <p class="trilha"><a href="index.html">Início</a> / Mídia</p>
+    <h1>Recursos multimídia</h1>
+    <p>Vídeo, áudio e conteúdo institucional reunidos para complementar o aprendizado sobre o tema.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Vídeo: respiração guiada</h2>
+    <p>Uma animação simples, produzida para este projeto, que ilustra um exercício básico de respiração — uma técnica frequentemente citada como recurso de autocuidado para momentos de tensão.</p>
+    <div class="bloco-midia">
+      <div class="moldura-video">
+        <video controls poster="img/poster-video.jpg">
+          <source src="assets/respiracao-guiada.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução deste vídeo. <a href="assets/respiracao-guiada.mp4">Baixe o arquivo de vídeo</a>.
+        </video>
+      </div>
+      <p class="legenda-midia">Vídeo original produzido para este projeto acadêmico. Não substitui orientação profissional.</p>
+    </div>
+
+    <h2>Áudio: pausa de atenção plena</h2>
+    <p>Uma faixa sonora curta e calma, pensada para acompanhar um momento breve de pausa e respiração consciente.</p>
+    <div class="bloco-midia">
+      <audio class="player-audio" controls>
+        <source src="assets/sino-atencao-plena.mp3" type="audio/mpeg">
+        Seu navegador não suporta a reprodução deste áudio. <a href="assets/sino-atencao-plena.mp3">Baixe o arquivo de áudio</a>.
+      </audio>
+      <p class="legenda-midia">Faixa sonora original, gerada para este projeto acadêmico.</p>
+    </div>
+
+    <h2>Conteúdo institucional: Ministério da Saúde</h2>
+    <p>Abaixo, a página oficial do Ministério da Saúde sobre saúde mental (gov.br). Caso o conteúdo não seja exibido dentro do quadro — o que pode acontecer por restrições de segurança do site de origem — utilize o link de acesso direto logo abaixo.</p>
+    <div class="bloco-midia">
+      <iframe src="https://www.gov.br/saude/pt-br/assuntos/saude-mental" title="Página oficial do Ministério da Saúde sobre saúde mental" width="100%" height="420" loading="lazy"></iframe>
+      <p class="legenda-midia">Fonte: Ministério da Saúde — <a href="https://www.gov.br/saude/pt-br/assuntos/saude-mental" target="_blank" rel="noopener">gov.br/saude/saude-mental</a> (abre em uma nova aba).</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div>
+      <h2>Mente Viva</h2>
+      <p>Projeto acadêmico de Front-End da UNICID sobre saúde mental, qualidade de vida, prevenção e promoção da saúde. Conteúdo educativo e informativo — não substitui avaliação, diagnóstico ou tratamento por profissionais de saúde.</p>
+    </div>
+    <div>
+      <h2>Navegação</h2>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre o projeto</a></li>
+        <li><a href="prevencao.html">Prevenção</a></li>
+        <li><a href="qualidade-vida.html">Qualidade de Vida</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Precisa de apoio agora?</h2>
+      <p>Em caso de sofrimento emocional ou emergência, ligue para o <strong>CVV – Centro de Valorização da Vida</strong>, telefone <strong>188</strong>, gratuito e disponível 24 horas (cvv.org.br), ou procure o serviço de saúde mais próximo.</p>
+    </div>
+    <div>
+      <h2>Contato do projeto</h2>
+      <ul>
+        <li>E-mail: contato@mentevivaprojeto.com.br</li>
+        <li>Telefone fictício: (11) 4000-1234</li>
+        <li>São Paulo — SP</li>
+      </ul>
+    </div>
+  </div>
+  <p class="creditos">Projeto acadêmico desenvolvido para a disciplina de Front-End — UNICID · © <span id="ano-atual"></span> Mente Viva. Conteúdo educativo, sem fins comerciais.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

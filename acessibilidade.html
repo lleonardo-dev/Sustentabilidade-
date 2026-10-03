@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acessibilidade — Mente Viva</title>
+<meta name="description" content="Recursos de acessibilidade do site Mente Viva: controle de fonte, alto contraste e boas práticas de inclusão digital.">
+<link rel="icon" href="img/icone-marca.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+<div class="barra-acessibilidade" role="region" aria-label="Controles de acessibilidade">
+  <div class="container">
+    <span class="rotulo">Acessibilidade:</span>
+    <button type="button" data-a11y="aumentar-fonte" aria-label="Aumentar o tamanho da fonte">A+</button>
+    <button type="button" data-a11y="diminuir-fonte" aria-label="Diminuir o tamanho da fonte">A−</button>
+    <button type="button" data-a11y="alto-contraste" aria-pressed="false" aria-label="Ativar ou desativar alto contraste">Alto contraste</button>
+    <button type="button" data-a11y="restaurar" aria-label="Restaurar configuração padrão de acessibilidade">Restaurar padrão</button>
+  </div>
+</div>
+
+<header class="cabecalho">
+  <div class="container">
+    <a href="index.html" class="marca">
+      <img src="img/icone-marca.svg" alt="" class="marca-icone">
+      Mente Viva
+    </a>
+    <button type="button" class="botao-menu-mobile" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menu de navegação">
+      <span></span>
+    </button>
+    <nav class="nav-principal" id="nav-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="prevencao.html">Prevenção</a></li>
+        <li><a href="qualidade-vida.html">Qualidade de Vida</a></li>
+        <li><a href="impacto.html">Impacto Social</a></li>
+        <li><a href="acessibilidade.html" aria-current="page">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+<section class="pagina-cabecalho">
+  <div class="container">
+    <p class="trilha"><a href="index.html">Início</a> / Acessibilidade</p>
+    <h1>Acessibilidade e Inclusão</h1>
+    <p>Um site sobre saúde mental precisa, antes de tudo, ser possível de usar por qualquer pessoa.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Controles de acessibilidade</h2>
+    <p>Use os botões abaixo (também disponíveis no topo de todas as páginas) para ajustar a experiência de leitura.</p>
+    <div class="grade-cards" style="margin-top:1rem;">
+      <div class="cartao acento-verde">
+        <h3>Tamanho da fonte</h3>
+        <p>Os botões <strong>A+</strong> e <strong>A−</strong> aumentam ou diminuem o texto em passos de 10%, entre 85% e 140% do tamanho padrão.</p>
+        <div class="hero-acoes">
+          <button type="button" class="botao botao-secundario" data-a11y="aumentar-fonte">Aumentar fonte</button>
+          <button type="button" class="botao botao-secundario" data-a11y="diminuir-fonte">Diminuir fonte</button>
+        </div>
+      </div>
+      <div class="cartao acento-azul">
+        <h3>Alto contraste</h3>
+        <p>Ativa uma paleta de altíssimo contraste (fundo preto e textos em amarelo/branco) para facilitar a leitura.</p>
+        <button type="button" class="botao botao-secundario" data-a11y="alto-contraste" aria-pressed="false">Ativar alto contraste</button>
+      </div>
+      <div class="cartao acento-dourado">
+        <h3>Restaurar padrão</h3>
+        <p>Retorna o tamanho de fonte e o contraste para a configuração original do site.</p>
+        <button type="button" class="botao botao-secundario" data-a11y="restaurar">Restaurar configuração padrão</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa-neutra">
+  <div class="container">
+    <h2>O que este site faz para ser acessível</h2>
+    <ul class="checklist-a11y">
+      <li>Texto alternativo descritivo em todas as imagens e ilustrações.</li>
+      <li>Contraste de cores adequado entre texto e fundo, com opção de alto contraste.</li>
+      <li>Navegação completa pelo teclado, incluindo menu, botões e formulário.</li>
+      <li>Indicador de foco visível em links, botões e campos de formulário.</li>
+      <li>Estrutura de títulos organizada de forma hierárquica (h1, h2, h3).</li>
+      <li><code>&lt;label&gt;</code> associado corretamente a cada campo do formulário de contato.</li>
+      <li>Uso de ARIA apenas quando necessário (ex.: <code>aria-current</code>, <code>aria-expanded</code>, <code>aria-pressed</code>).</li>
+      <li>Botões com rótulos acessíveis e área de toque adequada.</li>
+      <li>Links descritivos, evitando textos genéricos como "clique aqui".</li>
+      <li>Linguagem clara e direta em todo o conteúdo.</li>
+      <li>Layout responsivo, sem rolagem horizontal, testado do celular ao desktop.</li>
+      <li>HTML semântico (header, nav, main, section, article, footer), compatível com leitores de tela.</li>
+      <li>Link de "pular para o conteúdo principal" no início de cada página.</li>
+      <li>Movimento reduzido automaticamente quando o sistema do usuário solicita menos animações.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div>
+      <h2>Mente Viva</h2>
+      <p>Projeto acadêmico de Front-End da UNICID sobre saúde mental, qualidade de vida, prevenção e promoção da saúde. Conteúdo educativo e informativo — não substitui avaliação, diagnóstico ou tratamento por profissionais de saúde.</p>
+    </div>
+    <div>
+      <h2>Navegação</h2>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre o projeto</a></li>
+        <li><a href="prevencao.html">Prevenção</a></li>
+        <li><a href="qualidade-vida.html">Qualidade de Vida</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Precisa de apoio agora?</h2>
+      <p>Em caso de sofrimento emocional ou emergência, ligue para o <strong>CVV – Centro de Valorização da Vida</strong>, telefone <strong>188</strong>, gratuito e disponível 24 horas (cvv.org.br), ou procure o serviço de saúde mais próximo.</p>
+    </div>
+    <div>
+      <h2>Contato do projeto</h2>
+      <ul>
+        <li>E-mail: contato@mentevivaprojeto.com.br</li>
+        <li>Telefone fictício: (11) 4000-1234</li>
+        <li>São Paulo — SP</li>
+      </ul>
+    </div>
+  </div>
+  <p class="creditos">Projeto acadêmico desenvolvido para a disciplina de Front-End — UNICID · © <span id="ano-atual"></span> Mente Viva. Conteúdo educativo, sem fins comerciais.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

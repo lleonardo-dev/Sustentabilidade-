@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Mente Viva</title>
+<meta name="description" content="Fale com a equipe do projeto Mente Viva: formulário de contato, dados fictícios e orientação sobre apoio real.">
+<link rel="icon" href="img/icone-marca.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+<div class="barra-acessibilidade" role="region" aria-label="Controles de acessibilidade">
+  <div class="container">
+    <span class="rotulo">Acessibilidade:</span>
+    <button type="button" data-a11y="aumentar-fonte" aria-label="Aumentar o tamanho da fonte">A+</button>
+    <button type="button" data-a11y="diminuir-fonte" aria-label="Diminuir o tamanho da fonte">A−</button>
+    <button type="button" data-a11y="alto-contraste" aria-pressed="false" aria-label="Ativar ou desativar alto contraste">Alto contraste</button>
+    <button type="button" data-a11y="restaurar" aria-label="Restaurar configuração padrão de acessibilidade">Restaurar padrão</button>
+  </div>
+</div>
+
+<header class="cabecalho">
+  <div class="container">
+    <a href="index.html" class="marca">
+      <img src="img/icone-marca.svg" alt="" class="marca-icone">
+      Mente Viva
+    </a>
+    <button type="button" class="botao-menu-mobile" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menu de navegação">
+      <span></span>
+    </button>
+    <nav class="nav-principal" id="nav-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="prevencao.html">Prevenção</a></li>
+        <li><a href="qualidade-vida.html">Qualidade de Vida</a></li>
+        <li><a href="impacto.html">Impacto Social</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="contato.html" aria-current="page">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+<section class="pagina-cabecalho">
+  <div class="container">
+    <p class="trilha"><a href="index.html">Início</a> / Contato</p>
+    <h1>Contato</h1>
+    <p>Dúvidas, sugestões ou interesse em parcerias acadêmicas? Preencha o formulário abaixo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container grade-duas-colunas">
+    <div>
+      <h2>Envie uma mensagem</h2>
+      <form class="formulario" id="formulario-contato" novalidate>
+        <div class="campo">
+          <label for="campo-nome">Nome completo</label>
+          <input type="text" id="campo-nome" name="nome" required minlength="3" autocomplete="name">
+        </div>
+
+        <div class="linha-dupla">
+          <div class="campo">
+            <label for="campo-email">E-mail</label>
+            <input type="email" id="campo-email" name="email" required autocomplete="email">
+          </div>
+          <div class="campo">
+            <label for="campo-telefone">Telefone</label>
+            <input type="tel" id="campo-telefone" name="telefone" pattern="[0-9\s()+-]{8,15}" placeholder="(11) 90000-0000" autocomplete="tel">
+            <span class="dica">Formato sugerido: (DD) 90000-0000</span>
+          </div>
+        </div>
+
+        <div class="linha-dupla">
+          <div class="campo">
+            <label for="campo-data">Data de preferência para retorno</label>
+            <input type="date" id="campo-data" name="data-retorno">
+          </div>
+          <div class="campo">
+            <label for="campo-pessoas">Número de pessoas do grupo (se for pedido para turma/grupo)</label>
+            <input type="number" id="campo-pessoas" name="numero-pessoas" min="1" max="500" placeholder="1">
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="campo-assunto">Assunto</label>
+          <select id="campo-assunto" name="assunto" required>
+            <option value="">Selecione uma opção</option>
+            <option value="duvida">Dúvida sobre o site</option>
+            <option value="sugestao">Sugestão de conteúdo</option>
+            <option value="parceria">Parceria acadêmica</option>
+            <option value="acessibilidade">Relato sobre acessibilidade</option>
+            <option value="outro">Outro assunto</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="campo-mensagem">Mensagem</label>
+          <textarea id="campo-mensagem" name="mensagem" required minlength="10"></textarea>
+        </div>
+
+        <div>
+          <button type="submit" class="botao botao-primario">Enviar mensagem</button>
+        </div>
+
+        <p id="mensagem-envio" class="mensagem-envio" tabindex="-1">Mensagem validada com sucesso. Como este é um projeto acadêmico, nenhum dado é realmente enviado a um servidor.</p>
+      </form>
+    </div>
+
+    <div>
+      <h2>Dados de contato (fictícios)</h2>
+      <ul class="lista-limpa">
+        <li>E-mail: contato@mentevivaprojeto.com.br</li>
+        <li>Telefone: (11) 4000-1234</li>
+        <li>Endereço: Rua Exemplo Acadêmico, 100 — São Paulo, SP</li>
+        <li>Horário de atendimento fictício: segunda a sexta, das 9h às 18h</li>
+      </ul>
+
+      <h2 class="espaco-topo">Equipe do projeto</h2>
+      <div class="grade-equipe">
+        <div class="cartao-pessoa"><strong>Integrante 1</strong>Desenvolvimento Front-End</div>
+        <div class="cartao-pessoa"><strong>Integrante 2</strong>Conteúdo e pesquisa</div>
+        <div class="cartao-pessoa"><strong>Integrante 3</strong>Design e acessibilidade</div>
+        <div class="cartao-pessoa"><strong>Integrante 4</strong>Documentação e testes</div>
+      </div>
+
+      <div class="aviso espaco-topo">
+        <strong>Área de dúvidas</strong>
+        Este formulário é parte de uma atividade acadêmica e não representa um canal real de atendimento em saúde. Em caso de necessidade real de apoio emocional, ligue para o CVV (188) ou procure um serviço de saúde.
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div>
+      <h2>Mente Viva</h2>
+      <p>Projeto acadêmico de Front-End da UNICID sobre saúde mental, qualidade de vida, prevenção e promoção da saúde. Conteúdo educativo e informativo — não substitui avaliação, diagnóstico ou tratamento por profissionais de saúde.</p>
+    </div>
+    <div>
+      <h2>Navegação</h2>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre o projeto</a></li>
+        <li><a href="prevencao.html">Prevenção</a></li>
+        <li><a href="qualidade-vida.html">Qualidade de Vida</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Precisa de apoio agora?</h2>
+      <p>Em caso de sofrimento emocional ou emergência, ligue para o <strong>CVV – Centro de Valorização da Vida</strong>, telefone <strong>188</strong>, gratuito e disponível 24 horas (cvv.org.br), ou procure o serviço de saúde mais próximo.</p>
+    </div>
+    <div>
+      <h2>Contato do projeto</h2>
+      <ul>
+        <li>E-mail: contato@mentevivaprojeto.com.br</li>
+        <li>Telefone fictício: (11) 4000-1234</li>
+        <li>São Paulo — SP</li>
+      </ul>
+    </div>
+  </div>
+  <p class="creditos">Projeto acadêmico desenvolvido para a disciplina de Front-End — UNICID · © <span id="ano-atual"></span> Mente Viva. Conteúdo educativo, sem fins comerciais.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
