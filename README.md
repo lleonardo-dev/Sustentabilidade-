@@ -4,6 +4,7 @@ Projeto acadêmico de **Front-End para Web** sobre **Saúde Mental, Qualidade de
 
 ## 👥 Integrantes
 
+* Leonardo Augusto
 * Kayke Queriquieri
 * Jonathan Nery
 * Ruan Sousa
