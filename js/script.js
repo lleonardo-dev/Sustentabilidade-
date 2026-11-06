@@ -1,186 +1,153 @@
-/* =========================================================
-   Saúde Mental, Qualidade de Vida e Bem-Estar
-   Script principal
-   Responsável por: menu mobile, controles de acessibilidade
-   (tamanho de fonte e alto contraste), pequenas animações de
-   revelação ao rolar, validação complementar do formulário de
-   contato e marcação do ano no rodapé.
-   ========================================================= */
 
-(function () {
-  "use strict";
+  /* ---------- Abertura animada e transição suave ---------- */
+  (function () {
+    var abertura = document.getElementById("abertura-inicial");
+    var pular = document.getElementById("pular-abertura");
+    var cenas = abertura ? Array.prototype.slice.call(abertura.querySelectorAll(".abertura-cena")) : [];
+    if (!abertura || !pular || !cenas.length) return;
 
-  document.addEventListener("DOMContentLoaded", function () {
-    inicializarMenuMobile();
-    inicializarAcessibilidade();
-    inicializarRevelacaoAoRolar();
-    inicializarFormularioContato();
-    marcarAnoRodape();
-  });
+    var timers = [];
+    var encerrando = false;
+    var terminou = false;
+    var movimentoReduzido = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Menu mobile ---------- */
-  function inicializarMenuMobile() {
-    var botao = document.querySelector(".botao-menu-mobile");
-    var nav = document.querySelector(".nav-principal");
-    if (!botao || !nav) return;
-
-    botao.addEventListener("click", function () {
-      var aberto = nav.classList.toggle("aberto");
-      botao.setAttribute("aria-expanded", aberto ? "true" : "false");
-    });
-
-    // Fecha o menu ao clicar em um link (útil em telas pequenas)
-    nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        nav.classList.remove("aberto");
-        botao.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  /* ---------- Controles de acessibilidade ---------- */
-  function inicializarAcessibilidade() {
-    var raiz = document.documentElement;
-    var LIMITE_MIN = 0.85;
-    var LIMITE_MAX = 1.4;
-    var PASSO = 0.1;
-
-    var estadoSalvo = lerEstadoSalvo();
-    aplicarEstado(estadoSalvo);
-
-    var btnAumentar = document.querySelector("[data-a11y='aumentar-fonte']");
-    var btnDiminuir = document.querySelector("[data-a11y='diminuir-fonte']");
-    var btnContraste = document.querySelector("[data-a11y='alto-contraste']");
-    var btnRestaurar = document.querySelector("[data-a11y='restaurar']");
-
-    if (btnAumentar) {
-      btnAumentar.addEventListener("click", function () {
-        var escala = obterEscalaAtual();
-        escala = Math.min(LIMITE_MAX, +(escala + PASSO).toFixed(2));
-        raiz.style.setProperty("--escala-fonte", escala);
-        salvarEstado();
-      });
+    function agendar(ms, funcao) {
+      timers.push(window.setTimeout(funcao, ms));
     }
 
-    if (btnDiminuir) {
-      btnDiminuir.addEventListener("click", function () {
-        var escala = obterEscalaAtual();
-        escala = Math.max(LIMITE_MIN, +(escala - PASSO).toFixed(2));
-        raiz.style.setProperty("--escala-fonte", escala);
-        salvarEstado();
-      });
+    function limparTimers() {
+      timers.forEach(window.clearTimeout);
+      timers = [];
     }
 
-    if (btnContraste) {
-      btnContraste.addEventListener("click", function () {
-        var ativo = raiz.classList.toggle("alto-contraste");
-        btnContraste.setAttribute("aria-pressed", ativo ? "true" : "false");
-        salvarEstado();
-      });
-    }
-
-    if (btnRestaurar) {
-      btnRestaurar.addEventListener("click", function () {
-        raiz.style.removeProperty("--escala-fonte");
-        raiz.classList.remove("alto-contraste");
-        if (btnContraste) btnContraste.setAttribute("aria-pressed", "false");
-        try {
-          window.localStorage.removeItem("preferenciasAcessibilidade");
-        } catch (erro) {
-          /* armazenamento indisponível: segue sem persistir */
-        }
-      });
-    }
-
-    function obterEscalaAtual() {
-      var valor = getComputedStyle(raiz).getPropertyValue("--escala-fonte");
-      var numero = parseFloat(valor);
-      return isNaN(numero) ? 1 : numero;
-    }
-
-    function salvarEstado() {
-      try {
-        var estado = {
-          escala: obterEscalaAtual(),
-          contraste: raiz.classList.contains("alto-contraste")
-        };
-        window.localStorage.setItem("preferenciasAcessibilidade", JSON.stringify(estado));
-      } catch (erro) {
-        /* armazenamento indisponível: preferência não será lembrada */
+    function finalizar() {
+      if (terminou) return;
+      terminou = true;
+      limparTimers();
+      abertura.hidden = true;
+      document.body.classList.remove("intro-ativa");
+      var alvo = document.getElementById("logo-principal") || document.querySelector("main") || document.body;
+      if (alvo && typeof alvo.focus === "function") {
+        if (!alvo.hasAttribute("tabindex") && alvo === document.body) alvo.setAttribute("tabindex", "-1");
+        alvo.focus({ preventScroll: true });
       }
     }
 
-    function lerEstadoSalvo() {
-      try {
-        var bruto = window.localStorage.getItem("preferenciasAcessibilidade");
-        return bruto ? JSON.parse(bruto) : null;
-      } catch (erro) {
-        return null;
-      }
+    function sair(rapido) {
+      if (encerrando || terminou) return;
+      encerrando = true;
+      limparTimers();
+      if (rapido) abertura.style.transitionDuration = ".35s";
+      abertura.classList.add("saindo");
+      document.body.classList.remove("intro-ativa");
+      agendar(rapido ? 400 : 900, finalizar);
     }
 
-    function aplicarEstado(estado) {
-      if (!estado) return;
-      if (estado.escala) raiz.style.setProperty("--escala-fonte", estado.escala);
-      if (estado.contraste) {
-        raiz.classList.add("alto-contraste");
-        if (btnContraste) btnContraste.setAttribute("aria-pressed", "true");
-      }
+    function mostrarCena(indice) {
+      cenas.forEach(function (cena, i) {
+        cena.classList.toggle("ativa", i === indice);
+      });
     }
-  }
 
-  /* ---------- Revelação suave ao rolar a página ---------- */
-  function inicializarRevelacaoAoRolar() {
-    var elementos = document.querySelectorAll(".revelar");
-    if (!elementos.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-      elementos.forEach(function (el) { el.classList.add("mostrar"); });
+    if (movimentoReduzido) {
+      finalizar();
       return;
     }
 
-    var observador = new IntersectionObserver(
-      function (entradas) {
-        entradas.forEach(function (entrada) {
-          if (entrada.isIntersecting) {
-            entrada.target.classList.add("mostrar");
-            observador.unobserve(entrada.target);
+    // Sequência curta, com tempo para ler cada mensagem.
+    agendar(1500, function () { mostrarCena(1); });
+    agendar(3100, function () { mostrarCena(2); });
+    agendar(4800, function () { sair(false); });
+    // Segurança: a página nunca deve ficar presa na abertura.
+    agendar(6500, function () { sair(true); });
+
+    pular.addEventListener("click", function () { sair(true); });
+    document.addEventListener("keydown", function (evento) {
+      if (!encerrando && !terminou && (evento.key === "Escape" || evento.key === "Enter")) {
+        sair(true);
+      }
+    });
+    ["wheel", "touchstart"].forEach(function (evento) {
+      window.addEventListener(evento, function () { sair(true); }, { passive: true, once: true });
+    });
+  })();
+
+  /* ---------- 1) Menu ---------- */
+  var caixaMenu = document.getElementById("menu-check");
+  var linksMenu = document.querySelectorAll(".menu a");
+
+  document.querySelectorAll(".menu a, .logo").forEach(function (link) {
+    link.addEventListener("click", function () { caixaMenu.checked = false; });
+  });
+  document.addEventListener("keydown", function (evento) {
+    if (evento.key === "Escape") { caixaMenu.checked = false; }
+  });
+
+  if ("IntersectionObserver" in window) {
+    var observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (!entrada.isIntersecting) { return; }
+        linksMenu.forEach(function (link) {
+          if (link.getAttribute("href") === "#" + entrada.target.id) {
+            link.setAttribute("aria-current", "true");
+          } else {
+            link.removeAttribute("aria-current");
           }
         });
-      },
-      { threshold: 0.15 }
-    );
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
 
-    elementos.forEach(function (el) { observador.observe(el); });
-  }
-
-  /* ---------- Formulário de contato ---------- */
-  function inicializarFormularioContato() {
-    var formulario = document.querySelector("#formulario-contato");
-    if (!formulario) return;
-
-    var mensagem = document.querySelector("#mensagem-envio");
-
-    formulario.addEventListener("submit", function (evento) {
-      // Validação HTML5 nativa é a principal; aqui apenas reforçamos
-      // o feedback visual e impedimos o envio real (não há backend
-      // nesta atividade acadêmica).
-      if (!formulario.checkValidity()) {
-        return; // deixa o navegador mostrar as mensagens nativas
-      }
-      evento.preventDefault();
-      formulario.reset();
-      if (mensagem) {
-        mensagem.classList.add("visivel");
-        mensagem.setAttribute("role", "status");
-        mensagem.focus();
-      }
+    linksMenu.forEach(function (link) {
+      var secao = document.querySelector(link.getAttribute("href"));
+      if (secao) { observador.observe(secao); }
     });
   }
 
-  /* ---------- Ano no rodapé ---------- */
-  function marcarAnoRodape() {
-    var alvo = document.querySelector("#ano-atual");
-    if (alvo) alvo.textContent = new Date().getFullYear();
+  /* ---------- 2) Acessibilidade ---------- */
+  var raiz = document.documentElement;
+  var tamanhos = [87.5, 100, 112.5, 125, 150];                       // % do tamanho padrão do texto
+  var nomes = ["Menor", "Normal", "Grande", "Maior", "Muito grande"];
+  var posicao = 1;                                                    // 1 = tamanho original
+  var altoContraste = false;
+
+  var botaoMenos = document.getElementById("texto-menos");
+  var botaoNormal = document.getElementById("texto-normal");
+  var botaoMais = document.getElementById("texto-mais");
+  var botaoContraste = document.getElementById("alto-contraste");
+  var botaoRestaurar = document.getElementById("restaurar-tudo");
+  var estado = document.getElementById("estado-acessibilidade");
+
+  function aplicar() {
+    raiz.style.fontSize = tamanhos[posicao] + "%";
+    raiz.classList.toggle("alto-contraste", altoContraste);
+    botaoContraste.setAttribute("aria-pressed", altoContraste ? "true" : "false");
+    estado.textContent = "Tamanho do texto: " + nomes[posicao] + ". Alto contraste: " + (altoContraste ? "ligado" : "desligado") + ".";
+    try {
+      localStorage.setItem("mente-acessibilidade", JSON.stringify({ posicao: posicao, contraste: altoContraste }));
+    } catch (erro) { /* se o navegador não deixar guardar, o site continua funcionando */ }
   }
-})();
+
+  botaoMais.addEventListener("click", function () { if (posicao < tamanhos.length - 1) { posicao++; } aplicar(); });
+  botaoMenos.addEventListener("click", function () { if (posicao > 0) { posicao--; } aplicar(); });
+  botaoNormal.addEventListener("click", function () { posicao = 1; aplicar(); });
+  botaoContraste.addEventListener("click", function () { altoContraste = !altoContraste; aplicar(); });
+  botaoRestaurar.addEventListener("click", function () { posicao = 1; altoContraste = false; aplicar(); });
+
+  // Lembrar a escolha da pessoa quando ela voltar ao site
+  try {
+    var guardado = JSON.parse(localStorage.getItem("mente-acessibilidade"));
+    if (guardado && guardado.posicao >= 0 && guardado.posicao < tamanhos.length) {
+      posicao = guardado.posicao;
+      altoContraste = guardado.contraste === true;
+      aplicar();
+    }
+  } catch (erro) { /* sem configuração guardada: usa o padrão */ }
+
+  /* ---------- 3) Fotos da galeria: plano B se a imagem não carregar ---------- */
+  document.querySelectorAll(".foto img, .faixa-foto img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      var caixa = img.closest(".foto");
+      if (caixa) { caixa.classList.add("foto-falhou"); }
+    });
+  });

@@ -1,9 +1,0 @@
-<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1">
-<title id="t1">Ilustração de bem-estar: pessoa serena ao centro de círculos concêntricos</title>
-<rect width="400" height="300" fill="#dcefe2"/>
-<circle cx="200" cy="150" r="110" fill="#c9e6d5"/>
-<circle cx="200" cy="150" r="75" fill="#a9d7bf"/>
-<circle cx="200" cy="150" r="42" fill="#3f8f6f"/>
-<circle cx="200" cy="118" r="16" fill="#f6f4ef"/>
-<path d="M170 190 q30 -34 60 0 q-8 26 -30 26 q-22 0 -30 -26 Z" fill="#f6f4ef"/>
-</svg>
