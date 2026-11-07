@@ -1,154 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F5EF">
+  <meta name="description" content="Conteúdo educativo sobre saúde mental, autocuidado e qualidade de vida.">
+  <title>Mente em Equilíbrio — Saúde mental e qualidade de vida</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="intro-ativa">
+  <section class="abertura-inicial" id="abertura-inicial" aria-label="Apresentação">
+    <div class="abertura-cenas">
+      <div class="abertura-cena ativa">
+        <div class="abertura-simbolo" aria-hidden="true">♡</div>
+        <p class="abertura-etiqueta">Mente em Equilíbrio</p>
+        <h1 class="abertura-titulo">Um momento para <em>respirar</em></h1>
+        <p class="abertura-descricao">Reserve um instante para cuidar de você.</p>
+        <span class="abertura-linha"></span>
+      </div>
+      <div class="abertura-cena">
+        <div class="abertura-simbolo" aria-hidden="true">✿</div>
+        <p class="abertura-etiqueta">Cuidado também é prevenção</p>
+        <h2 class="abertura-titulo">Cuidar da mente é cuidar da <em>vida</em></h2>
+        <p class="abertura-descricao">Pequenos passos podem fazer diferença no bem-estar.</p>
+        <span class="abertura-linha"></span>
+      </div>
+      <div class="abertura-cena">
+        <div class="abertura-simbolo" aria-hidden="true">→</div>
+        <p class="abertura-etiqueta">Vamos começar?</p>
+        <h2 class="abertura-titulo">Seu bem-estar merece <em>atenção</em></h2>
+        <p class="abertura-descricao">Explore informações e encontre caminhos de cuidado.</p>
+        <span class="abertura-linha"></span>
+      </div>
+    </div>
+    <button class="abertura-pular" id="pular-abertura" type="button">Pular abertura</button>
+  </section>
 
-  /* ---------- Abertura animada e transição suave ---------- */
-  /* ---------- Leonardo Farmador de AURA ---------- */
-  (function () {
-    var abertura = document.getElementById("abertura-inicial");
-    var pular = document.getElementById("pular-abertura");
-    var cenas = abertura ? Array.prototype.slice.call(abertura.querySelectorAll(".abertura-cena")) : [];
-    if (!abertura || !pular || !cenas.length) return;
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-folha" viewBox="0 0 48 48">
+      <path d="M40 8C22 8 10 14 10 28c0 7 5 12 12 12C36 40 40 25 40 8Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M8 42c7-11 14-17 25-24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-coracao" viewBox="0 0 48 48">
+      <path d="M24 40 7 24C-2 14 11 2 21 12l3 3 3-3C37 2 50 14 41 24L24 40Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-sol" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="M24 3v6m0 30v6M3 24h6m30 0h6M9 9l4 4m22 22 4 4m0-30-4 4M13 35l-4 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+  </svg>
 
-    var timers = [];
-    var encerrando = false;
-    var terminou = false;
-    var movimentoReduzido = window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
 
-    function agendar(ms, funcao) {
-      timers.push(window.setTimeout(funcao, ms));
-    }
+  <header class="cabecalho">
+    <div class="container cabecalho-interno">
+      <a class="logo" id="logo-principal" href="#inicio">
+        <svg class="logo-icone" aria-hidden="true"><use href="#i-folha"></use></svg>
+        Mente em Equilíbrio
+      </a>
+      <input class="menu-check" id="menu-check" type="checkbox">
+      <label class="menu-botao" for="menu-check">
+        Menu <span class="menu-botao-barras" aria-hidden="true"></span>
+      </label>
+      <nav class="menu" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#saude-mental">Saúde mental</a></li>
+          <li><a href="#qualidade-de-vida">Qualidade de vida</a></li>
+          <li><a href="#habitos">Hábitos</a></li>
+          <li><a href="#prevencao">Prevenção</a></li>
+          <li><a href="#impacto-social">Convivência</a></li>
+          <li><a href="#acessibilidade">Acessibilidade</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#apoio">Apoio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    function limparTimers() {
-      timers.forEach(window.clearTimeout);
-      timers = [];
-    }
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="container hero-grade">
+        <div class="hero-texto">
+          <span class="hero-boas-vindas">Um espaço de informação e acolhimento</span>
+          <h1 class="hero-titulo"><span class="linha">Cultive o cuidado.</span><span class="linha linha-suave">Encontre equilíbrio.</span></h1>
+          <p class="hero-apoio">Saúde mental também faz parte da saúde. Conheça práticas de autocuidado, informação confiável e caminhos para buscar apoio.</p>
+          <div class="hero-botoes">
+            <a class="botao botao-primario" href="#saude-mental">Conheça o tema</a>
+            <a class="botao botao-secundario botao-seta" href="#apoio">Encontre apoio</a>
+          </div>
+          <ul class="hero-garantias">
+            <li>Informação educativa</li>
+            <li>Cuidado sem julgamentos</li>
+          </ul>
+        </div>
+        <div class="cena">
+          <svg class="cena-svg" viewBox="0 0 520 420" role="img" aria-label="Ilustração de uma paisagem com sol e plantas">
+            <circle class="orbe" cx="260" cy="205" r="145" fill="#DCEAF2"/>
+            <circle class="anel" cx="260" cy="205" r="118" fill="none" stroke="#A8CBB7" stroke-width="2"/>
+            <circle class="anel anel-2" cx="260" cy="205" r="96" fill="none" stroke="#6E9F89" stroke-width="1"/>
+            <circle class="sol" cx="340" cy="116" r="34" fill="#E9C77B"/>
+            <path d="M0 315 Q115 235 220 315T520 290V420H0Z" fill="#A8CBB7"/>
+            <path d="M0 350 Q140 275 270 350T520 330V420H0Z" fill="#6E9F89"/>
+            <g class="planta" fill="none" stroke="#315C4B" stroke-width="7" stroke-linecap="round">
+              <path d="M260 365V270m0 44c-44-44-72-26-58 2 12 24 39 15 58-2Zm0-29c35-42 63-28 51-2-10 22-34 19-51 2Z"/>
+            </g>
+            <path class="folha" d="M104 121c31-12 48 3 42 23-5 17-28 17-42-23Z" fill="#6E9F89"/>
+            <path class="folha folha-2" d="M412 218c-27-22-47-13-45 7 2 18 24 25 45-7Z" fill="#A8CBB7"/>
+            <path class="folha folha-3" d="M145 250c-21-26-43-22-45-3-1 18 18 29 45 3Z" fill="#315C4B"/>
+          </svg>
+          <div class="respire" aria-label="Lembrete para respirar com calma">
+            <span class="respire-bolha" aria-hidden="true"></span>
+            <span class="respire-texto"><strong>Respire com a gente</strong><span class="respire-inspire">Inspire com calma</span><span class="respire-expire">Expire devagar</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="onda" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0 45C360 110 1080-10 1440 55V100H0Z" fill="#fff"/></svg></div>
+    </section>
 
-    function finalizar() {
-      if (terminou) return;
-      terminou = true;
-      limparTimers();
-      abertura.hidden = true;
-      document.body.classList.remove("intro-ativa");
-      var alvo = document.getElementById("logo-principal") || document.querySelector("main") || document.body;
-      if (alvo && typeof alvo.focus === "function") {
-        if (!alvo.hasAttribute("tabindex") && alvo === document.body) alvo.setAttribute("tabindex", "-1");
-        alvo.focus({ preventScroll: true });
-      }
-    }
+    <section class="secao secao-branca" id="saude-mental">
+      <div class="container">
+        <header class="secao-titulo"><h2>O que é saúde mental?</h2><p>Ela envolve como pensamos, sentimos, nos relacionamos e lidamos com os desafios da vida. Não significa estar feliz o tempo todo.</p></header>
+        <div class="grade grade-3">
+          <article class="cartao"><svg class="icone" aria-hidden="true"><use href="#i-coracao"></use></svg><h3>Bem-estar emocional</h3><p>Reconhecer sentimentos e encontrar formas saudáveis de expressá-los faz parte do cuidado.</p></article>
+          <article class="cartao"><svg class="icone" aria-hidden="true"><use href="#i-folha"></use></svg><h3>Bem-estar psicológico</h3><p>Autoconhecimento e apoio ajudam a enfrentar mudanças, dificuldades e momentos de estresse.</p></article>
+          <article class="cartao"><svg class="icone" aria-hidden="true"><use href="#i-sol"></use></svg><h3>Bem-estar social</h3><p>Vínculos respeitosos e senso de pertencimento contribuem para uma vida mais saudável.</p></article>
+        </div>
+      </div>
+    </section>
 
-    function sair(rapido) {
-      if (encerrando || terminou) return;
-      encerrando = true;
-      limparTimers();
-      if (rapido) abertura.style.transitionDuration = ".35s";
-      abertura.classList.add("saindo");
-      document.body.classList.remove("intro-ativa");
-      agendar(rapido ? 400 : 900, finalizar);
-    }
+    <section class="secao secao-bege" id="qualidade-de-vida">
+      <div class="container">
+        <header class="secao-titulo"><h2>Qualidade de vida começa no cotidiano</h2><p>Não existe uma fórmula única. O cuidado pode ser construído com escolhas possíveis e gentis com você.</p></header>
+        <div class="grade grade-3">
+          <article class="cartao cartao-lado"><svg class="icone" aria-hidden="true"><use href="#i-folha"></use></svg><div><h3>Autocuidado</h3><p>Reserve tempo para descanso, lazer e atividades que fazem sentido para você.</p></div></article>
+          <article class="cartao cartao-lado"><svg class="icone" aria-hidden="true"><use href="#i-coracao"></use></svg><div><h3>Equilíbrio emocional</h3><p>Perceba seus limites e procure apoio quando algo parecer difícil demais.</p></div></article>
+          <article class="cartao cartao-lado"><svg class="icone" aria-hidden="true"><use href="#i-sol"></use></svg><div><h3>Pequenos passos</h3><p>Metas realistas ajudam a criar uma rotina que respeita sua realidade.</p></div></article>
+        </div>
+      </div>
+    </section>
 
-    function mostrarCena(indice) {
-      cenas.forEach(function (cena, i) {
-        cena.classList.toggle("ativa", i === indice);
-      });
-    }
+    <section class="secao secao-verde" id="habitos">
+      <div class="container">
+        <header class="secao-titulo"><h2>Hábitos que apoiam o bem-estar</h2><p>Hábitos saudáveis não substituem tratamento, mas podem fazer parte de uma rotina de cuidado.</p></header>
+        <div class="grade grade-4">
+          <article class="cartao"><h3>Sono</h3><p>Busque uma rotina de descanso compatível com suas necessidades.</p></article>
+          <article class="cartao"><h3>Movimento</h3><p>Encontre uma atividade física agradável e adequada para você.</p></article>
+          <article class="cartao"><h3>Alimentação</h3><p>Uma alimentação variada contribui para a saúde do corpo e da mente.</p></article>
+          <article class="cartao"><h3>Conexões</h3><p>Manter contato com pessoas de confiança pode fortalecer sua rede de apoio.</p></article>
+        </div>
+      </div>
+    </section>
 
-    if (movimentoReduzido) {
-      finalizar();
-      return;
-    }
+    <section class="secao secao-branca" id="prevencao">
+      <div class="container">
+        <header class="secao-titulo"><h2>Prevenção também é cuidado</h2><p>Você não precisa esperar chegar ao limite para conversar com alguém ou procurar orientação.</p></header>
+        <div class="grade grade-2">
+          <article class="cartao"><h3>1. Observe</h3><p>Note mudanças persistentes no sono, no humor, na disposição ou na vontade de fazer atividades.</p></article>
+          <article class="cartao"><h3>2. Converse</h3><p>Compartilhe o que está sentindo com alguém de confiança, no seu tempo.</p></article>
+          <article class="cartao"><h3>3. Procure orientação</h3><p>Profissionais de saúde podem ajudar a entender o que está acontecendo e quais cuidados são indicados.</p></article>
+          <article class="cartao"><h3>4. Continue cuidando</h3><p>O acompanhamento pode levar tempo; peça ajuda para manter os cuidados necessários.</p></article>
+        </div>
+      </div>
+    </section>
 
-    // Sequência curta, com tempo para ler cada mensagem.
-    agendar(1500, function () { mostrarCena(1); });
-    agendar(3100, function () { mostrarCena(2); });
-    agendar(4800, function () { sair(false); });
-    // Segurança: a página nunca deve ficar presa na abertura.
-    agendar(6500, function () { sair(true); });
+    <section class="secao secao-bege" id="impacto-social">
+      <div class="container">
+        <header class="secao-titulo"><h2>Uma comunidade mais acolhedora</h2><p>Informação, empatia e respeito ajudam a reduzir o estigma e tornam mais fácil pedir ajuda.</p></header>
+        <div class="grade grade-3">
+          <article class="cartao"><h3>Escute com respeito</h3><p>Ouvir sem minimizar o que a outra pessoa sente já é uma forma importante de acolher.</p></article>
+          <article class="cartao"><h3>Evite julgamentos</h3><p>Saúde mental não é falta de força de vontade. Cada experiência merece ser tratada com seriedade.</p></article>
+          <article class="cartao"><h3>Compartilhe informação</h3><p>Prefira fontes confiáveis e incentive a busca por profissionais qualificados.</p></article>
+        </div>
+        <blockquote class="frase"><p>“Acolher começa quando damos espaço para ouvir, sem julgar.”</p></blockquote>
+      </div>
+    </section>
 
-    pular.addEventListener("click", function () { sair(true); });
-    document.addEventListener("keydown", function (evento) {
-      if (!encerrando && !terminou && (evento.key === "Escape" || evento.key === "Enter")) {
-        sair(true);
-      }
-    });
-    ["wheel", "touchstart"].forEach(function (evento) {
-      window.addEventListener(evento, function () { sair(true); }, { passive: true, once: true });
-    });
-  })();
+    <section class="secao secao-branca" id="acessibilidade">
+      <div class="container">
+        <header class="secao-titulo"><h2>Acessibilidade para ler melhor</h2><p>Ajuste o tamanho do texto e o contraste para deixar a leitura mais confortável.</p></header>
+        <div class="painel">
+          <p>Use os controles abaixo para adaptar a apresentação do conteúdo. A preferência fica salva neste navegador.</p>
+          <div class="painel-botoes">
+            <button class="botao botao-secundario" id="texto-menos" type="button">A− Diminuir texto</button>
+            <button class="botao botao-secundario" id="texto-normal" type="button">Tamanho normal</button>
+            <button class="botao botao-secundario" id="texto-mais" type="button">A+ Aumentar texto</button>
+            <button class="botao botao-secundario" id="alto-contraste" type="button" aria-pressed="false">Alto contraste</button>
+            <button class="botao botao-secundario" id="restaurar-tudo" type="button">Restaurar</button>
+          </div>
+          <p class="painel-estado" id="estado-acessibilidade" aria-live="polite">Tamanho do texto: Normal. Alto contraste: desligado.</p>
+        </div>
+        <p class="aviso-acess">Se precisar de outra forma de acesso ao conteúdo, procure as opções de acessibilidade do seu dispositivo.</p>
+      </div>
+    </section>
 
-  /* ---------- 1) Menu ---------- */
-  var caixaMenu = document.getElementById("menu-check");
-  var linksMenu = document.querySelectorAll(".menu a");
+    <section class="secao secao-bege" id="duvidas">
+      <div class="container">
+        <header class="secao-titulo"><h2>Dúvidas frequentes</h2><p>Informações gerais para ajudar a começar uma conversa sobre saúde mental.</p></header>
+        <div class="duvidas">
+          <details class="duvida"><summary>Procurar ajuda é sinal de fraqueza?</summary><p>Não. Buscar apoio é uma atitude de cuidado. Um profissional pode ajudar a avaliar suas necessidades e orientar os próximos passos.</p></details>
+          <details class="duvida"><summary>Como posso apoiar alguém próximo?</summary><p>Escute com atenção, demonstre disponibilidade e evite pressionar. Se houver risco imediato, procure serviços de emergência.</p></details>
+          <details class="duvida"><summary>Este site oferece diagnóstico ou tratamento?</summary><p>Não. O conteúdo é educativo e não substitui avaliação, diagnóstico ou acompanhamento por profissionais de saúde.</p></details>
+        </div>
+      </div>
+    </section>
 
-  document.querySelectorAll(".menu a, .logo").forEach(function (link) {
-    link.addEventListener("click", function () { caixaMenu.checked = false; });
-  });
-  document.addEventListener("keydown", function (evento) {
-    if (evento.key === "Escape") { caixaMenu.checked = false; }
-  });
+    <section class="secao secao-branca" id="galeria">
+      <div class="container">
+        <header class="secao-titulo"><h2>Momentos de cuidado</h2><p>Bem-estar pode estar em gestos simples, conexões e contato com a natureza.</p></header>
+        <div class="galeria">
+          <figure class="foto"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Paisagem verde com montanhas ao fundo" loading="lazy" width="800" height="560"><figcaption><strong>Respire</strong>Uma pausa também pode ser produtiva.</figcaption></figure>
+          <figure class="foto"><img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Pessoas reunidas em um momento de convivência" loading="lazy" width="800" height="560"><figcaption><strong>Conecte-se</strong>Relações de apoio fazem diferença.</figcaption></figure>
+          <figure class="foto"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Pessoa praticando meditação em ambiente tranquilo" loading="lazy" width="800" height="560"><figcaption><strong>Cuide de você</strong>Encontre práticas que respeitem seu ritmo.</figcaption></figure>
+          <figure class="foto"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Luz do sol surgindo sobre uma paisagem natural" loading="lazy" width="800" height="560"><figcaption><strong>Recomece</strong>Um passo pequeno ainda é um passo.</figcaption></figure>
+          <figure class="foto"><img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Pessoa caminhando por um caminho cercado de árvores" loading="lazy" width="800" height="560"><figcaption><strong>Movimente-se</strong>Atividade física pode ser uma forma de autocuidado.</figcaption></figure>
+          <figure class="foto"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Trilha entre árvores em uma floresta" loading="lazy" width="800" height="560"><figcaption><strong>Encontre seu espaço</strong>Descanse e busque o que traz tranquilidade.</figcaption></figure>
+        </div>
+        <p class="nota-galeria">As imagens são ilustrativas e dependem de conexão com a internet.</p>
+      </div>
+    </section>
+  </main>
 
-  if ("IntersectionObserver" in window) {
-    var observador = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (entrada) {
-        if (!entrada.isIntersecting) { return; }
-        linksMenu.forEach(function (link) {
-          if (link.getAttribute("href") === "#" + entrada.target.id) {
-            link.setAttribute("aria-current", "true");
-          } else {
-            link.removeAttribute("aria-current");
-          }
-        });
-      });
-    }, { rootMargin: "-35% 0px -55% 0px" });
+  <figure class="faixa-foto">
+    <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Luz do sol sobre uma paisagem natural" loading="lazy" width="1600" height="700">
+    <figcaption>Reserve espaço para respirar e cuidar de si.</figcaption>
+  </figure>
 
-    linksMenu.forEach(function (link) {
-      var secao = document.querySelector(link.getAttribute("href"));
-      if (secao) { observador.observe(secao); }
-    });
-  }
+  <section class="apoio" id="apoio">
+    <div class="container apoio-grade">
+      <div>
+        <h2>Você não precisa passar por isso sozinho</h2>
+        <p>Se estiver difícil, converse com alguém de confiança ou procure um serviço de saúde. Em uma situação de emergência, ligue para o serviço de emergência da sua região.</p>
+        <p class="apoio-aviso">O Centro de Valorização da Vida oferece apoio emocional gratuito e sigiloso.</p>
+      </div>
+      <div class="apoio-cartao">
+        <p class="apoio-nome">CVV — Centro de Valorização da Vida</p>
+        <a class="apoio-numero" href="tel:188">188</a>
+        <p>Ligação gratuita, 24 horas por dia.</p>
+        <p><a href="https://cvv.org.br/" target="_blank" rel="noopener noreferrer">Acesse cvv.org.br</a></p>
+      </div>
+    </div>
+  </section>
 
-  /* ---------- 2) Acessibilidade ---------- */
-  var raiz = document.documentElement;
-  var tamanhos = [87.5, 100, 112.5, 125, 150];                       // % do tamanho padrão do texto
-  var nomes = ["Menor", "Normal", "Grande", "Maior", "Muito grande"];
-  var posicao = 1;                                                    // 1 = tamanho original
-  var altoContraste = false;
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-grade">
+        <div><p class="rodape-marca">Mente em Equilíbrio</p><p>Informação educativa sobre saúde mental e qualidade de vida.</p></div>
+        <div><h2>Explore</h2><ul><li><a href="#saude-mental">Saúde mental</a></li><li><a href="#habitos">Hábitos saudáveis</a></li><li><a href="#prevencao">Prevenção</a></li></ul></div>
+        <div><h2>Cuide-se</h2><ul><li><a href="#acessibilidade">Acessibilidade</a></li><li><a href="#duvidas">Dúvidas frequentes</a></li><li><a href="#apoio">Encontre apoio</a></li></ul></div>
+      </div>
+      <div class="rodape-fim"><span>Conteúdo educativo; não substitui orientação profissional.</span><a href="#inicio">Voltar ao início ↑</a></div>
+    </div>
+  </footer>
 
-  var botaoMenos = document.getElementById("texto-menos");
-  var botaoNormal = document.getElementById("texto-normal");
-  var botaoMais = document.getElementById("texto-mais");
-  var botaoContraste = document.getElementById("alto-contraste");
-  var botaoRestaurar = document.getElementById("restaurar-tudo");
-  var estado = document.getElementById("estado-acessibilidade");
-
-  function aplicar() {
-    raiz.style.fontSize = tamanhos[posicao] + "%";
-    raiz.classList.toggle("alto-contraste", altoContraste);
-    botaoContraste.setAttribute("aria-pressed", altoContraste ? "true" : "false");
-    estado.textContent = "Tamanho do texto: " + nomes[posicao] + ". Alto contraste: " + (altoContraste ? "ligado" : "desligado") + ".";
-    try {
-      localStorage.setItem("mente-acessibilidade", JSON.stringify({ posicao: posicao, contraste: altoContraste }));
-    } catch (erro) { /* se o navegador não deixar guardar, o site continua funcionando */ }
-  }
-
-  botaoMais.addEventListener("click", function () { if (posicao < tamanhos.length - 1) { posicao++; } aplicar(); });
-  botaoMenos.addEventListener("click", function () { if (posicao > 0) { posicao--; } aplicar(); });
-  botaoNormal.addEventListener("click", function () { posicao = 1; aplicar(); });
-  botaoContraste.addEventListener("click", function () { altoContraste = !altoContraste; aplicar(); });
-  botaoRestaurar.addEventListener("click", function () { posicao = 1; altoContraste = false; aplicar(); });
-
-  // Lembrar a escolha da pessoa quando ela voltar ao site
-  try {
-    var guardado = JSON.parse(localStorage.getItem("mente-acessibilidade"));
-    if (guardado && guardado.posicao >= 0 && guardado.posicao < tamanhos.length) {
-      posicao = guardado.posicao;
-      altoContraste = guardado.contraste === true;
-      aplicar();
-    }
-  } catch (erro) { /* sem configuração guardada: usa o padrão */ }
-
-  /* ---------- 3) Fotos da galeria: plano B se a imagem não carregar ---------- */
-  document.querySelectorAll(".foto img, .faixa-foto img").forEach(function (img) {
-    img.addEventListener("error", function () {
-      var caixa = img.closest(".foto");
-      if (caixa) { caixa.classList.add("foto-falhou"); }
-    });
-  });
+  <script src="js/script.js"></script>
+</body>
+</html>
